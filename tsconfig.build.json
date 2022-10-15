@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/",
+        "noEmit": false,
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationMap": true,
+        "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+    },
+    "extends": "./tsconfig.json"
+}

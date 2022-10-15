@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const libraries = [
     {
         entry: path.resolve(__dirname, "/src/container/index.ts"),
-        fileName: "container",
+        fileName: "container/index",
     },
     {
         entry: path.resolve(__dirname, "/src/container/react.ts"),
