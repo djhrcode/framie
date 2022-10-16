@@ -1,6 +1,8 @@
 import React, { ComponentProps, PropsWithChildren, useContext } from "react";
 import { Container } from "@shared/container/domain/Container";
 import { ContainerToken } from "@shared/container/domain/ContainerToken";
+import { ContainerDependency } from "../domain/ContainerDependency";
+import { ContainerResolver } from "../domain/ContainerResolver";
 
 type ContainerTokensModulesRegistry = {
     [TokenOrModule: string]:
@@ -18,10 +20,38 @@ type RegistryFromTokens<Tokens extends ContainerTokensModulesRegistry> = {
           };
 };
 
+export type ContainerContext<Tokens extends ContainerTokensModulesRegistry> = {
+    Provider: (
+        props: React.PropsWithChildren<{
+            value?: Container | undefined;
+        }>
+    ) => JSX.Element;
+
+    useRegistry: () => RegistryFromTokens<Tokens>;
+
+    useContainer: () => Container;
+
+    useInject: <Dependency extends ContainerToken<unknown>>(
+        token: Dependency
+    ) => Required<Dependency>["type"];
+
+    useProvide: <Dependency extends ContainerToken<unknown>>(
+        token: Dependency
+    ) => ContainerDependency<ContainerResolver<Dependency["type"]>>;
+
+    withContainer: <
+        Element extends React.JSXElementConstructor<any>,
+        Props extends React.ComponentProps<Element>
+    >(
+        Component: Element,
+        container?: Container
+    ) => (props: Props) => JSX.Element;
+};
+
 export function createContext<Tokens extends ContainerTokensModulesRegistry>(
     container: Container,
     tokens?: Tokens
-) {
+): ContainerContext<Tokens> {
     const Context = React.createContext(container);
 
     const Provider = ({
