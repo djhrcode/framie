@@ -1,10 +1,10 @@
-import { Container } from "@shared/container/domain/Container";
+import { Container } from "../domain/Container";
 import {
     ContainerRegistry,
     ContainerRegistryMap,
-} from "@shared/container/domain/ContainerRegistry";
-import { ContainerToken } from "@shared/container/domain/ContainerToken";
-import { createToken } from "@shared/container/core/createToken";
+} from "../domain/ContainerRegistry";
+import { ContainerToken } from "../domain/ContainerToken";
+import { createToken } from "../core/createToken";
 
 export type ContainerRegistryOptions = {
     modules?: Record<string, ContainerRegistryMap>;

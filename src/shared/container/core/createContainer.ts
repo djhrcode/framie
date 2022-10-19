@@ -1,9 +1,9 @@
-import { Container } from "@shared/container/domain/Container";
+import { Container } from "../domain/Container";
 import {
     ContainerRegistryMap,
     ContainerRegistryTokens,
-} from "@shared/container/domain/ContainerRegistry";
-import { createDependency } from "@shared/container/core/createDependency";
+} from "../domain/ContainerRegistry";
+import { createDependency } from "../core/createDependency";
 
 export function createContainer(): Container {
     const registry = new Map<Symbol, () => unknown>();

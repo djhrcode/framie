@@ -1,1 +1,1 @@
-export { createContext } from "@shared/container/react/createContext";
+export { createContext } from "../shared/container/react/createContext";

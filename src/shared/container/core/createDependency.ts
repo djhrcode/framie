@@ -1,7 +1,7 @@
-import { Container } from "@shared/container/domain/Container";
-import { ContainerDependency } from "@shared/container/domain/ContainerDependency";
-import { ContainerResolver } from "@shared/container/domain/ContainerResolver";
-import { ContainerToken } from "@shared/container/domain/ContainerToken";
+import { Container } from "../domain/Container";
+import { ContainerDependency } from "../domain/ContainerDependency";
+import { ContainerResolver } from "../domain/ContainerResolver";
+import { ContainerToken } from "../domain/ContainerToken";
 
 export function createDependency<
   Token extends ContainerToken<unknown>,

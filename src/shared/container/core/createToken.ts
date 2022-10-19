@@ -1,4 +1,4 @@
-import { ContainerToken } from "@shared/container/domain/ContainerToken";
+import { ContainerToken } from "../domain/ContainerToken";
 
 export function createToken<Type>(name: string): ContainerToken<Type> {
   return {
